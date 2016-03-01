@@ -1,0 +1,8 @@
+[Inputs]
+DP
+DM
+Clk_60Mhz
+[Outputs]
+synced
+DO
+[BiDir]

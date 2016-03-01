@@ -1,0 +1,2 @@
+vhdtdtfi -lib work SHR64.vhd -prj USB -o SHR64.spl -module SHR64 -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e SHR64.spl C:/Users/lab/usb11/SHR64.sym 

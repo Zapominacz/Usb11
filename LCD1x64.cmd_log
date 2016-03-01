@@ -1,0 +1,1 @@
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc GenIO.ucf -uc PS2_USB_SDC.ucf -p xc3s500e-fg320-5 LCD1x64.ngc LCD1x64.ngd  

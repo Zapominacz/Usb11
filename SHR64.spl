@@ -1,0 +1,7 @@
+[Inputs]
+Din
+Clk
+CE
+[Outputs]
+=Q[63:0]=
+[BiDir]
