@@ -4,5 +4,5 @@ DM
 Clk_60Mhz
 [Outputs]
 synced
-DO
+=data[63:0]=
 [BiDir]

@@ -6,18 +6,11 @@
         <trait edittrait="all:0" />
     </attr>
     <netlist>
-        <signal name="XLXN_4" />
         <signal name="XLXN_2" />
         <signal name="XLXN_3" />
         <signal name="Clk_50MHz" />
         <signal name="XLXN_5" />
         <signal name="XLXN_28" />
-        <signal name="XLXN_29" />
-        <signal name="XLXN_30(63:0)" />
-        <signal name="XLXN_31" />
-        <signal name="XLXN_32" />
-        <signal name="XLXN_33" />
-        <signal name="LED1" />
         <signal name="SF_CE" />
         <signal name="LCD_D(3:0)" />
         <signal name="LCD_RW" />
@@ -25,8 +18,10 @@
         <signal name="LCD_E" />
         <signal name="USB_DP" />
         <signal name="USB_DM" />
+        <signal name="XLXN_34(63:0)" />
+        <signal name="XLXN_35" />
+        <signal name="LED1" />
         <port polarity="Input" name="Clk_50MHz" />
-        <port polarity="Output" name="LED1" />
         <port polarity="Output" name="SF_CE" />
         <port polarity="Output" name="LCD_D(3:0)" />
         <port polarity="Output" name="LCD_RW" />
@@ -34,6 +29,7 @@
         <port polarity="Output" name="LCD_E" />
         <port polarity="Input" name="USB_DP" />
         <port polarity="Input" name="USB_DM" />
+        <port polarity="Output" name="LED1" />
         <blockdef name="dcm_sp">
             <timestamp>2007-4-11T22:49:47</timestamp>
             <line x2="0" y1="-832" y2="-832" x1="64" />
@@ -89,37 +85,20 @@
             <line x2="0" y1="-224" y2="-224" x1="64" />
             <line x2="0" y1="-96" y2="-96" x1="64" />
         </blockdef>
-        <blockdef name="SHR64">
-            <timestamp>2016-3-1T15:11:52</timestamp>
-            <rect width="256" x="64" y="-192" height="192" />
-            <line x2="0" y1="-160" y2="-160" x1="64" />
-            <line x2="0" y1="-96" y2="-96" x1="64" />
-            <line x2="0" y1="-32" y2="-32" x1="64" />
-            <rect width="64" x="320" y="-172" height="24" />
-            <line x2="384" y1="-160" y2="-160" x1="320" />
-        </blockdef>
         <blockdef name="fsm">
-            <timestamp>2016-3-1T15:11:56</timestamp>
-            <rect width="256" x="64" y="-192" height="192" />
+            <timestamp>2016-3-7T20:32:17</timestamp>
+            <rect width="64" x="320" y="20" height="24" />
+            <line x2="384" y1="32" y2="32" x1="320" />
             <line x2="0" y1="-160" y2="-160" x1="64" />
             <line x2="0" y1="-96" y2="-96" x1="64" />
             <line x2="0" y1="-32" y2="-32" x1="64" />
             <line x2="384" y1="-160" y2="-160" x1="320" />
-            <line x2="384" y1="-32" y2="-32" x1="320" />
-        </blockdef>
-        <blockdef name="inv">
-            <timestamp>2000-1-1T10:10:10</timestamp>
-            <line x2="64" y1="-32" y2="-32" x1="0" />
-            <line x2="160" y1="-32" y2="-32" x1="224" />
-            <line x2="128" y1="-64" y2="-32" x1="64" />
-            <line x2="64" y1="-32" y2="0" x1="128" />
-            <line x2="64" y1="0" y2="-64" x1="64" />
-            <circle r="16" cx="144" cy="-32" />
+            <rect width="256" x="64" y="-192" height="256" />
         </blockdef>
         <block symbolname="LCD1x64" name="XLXI_4">
             <blockpin signalname="Clk_50MHz" name="Clk_50MHz" />
             <blockpin name="Reset" />
-            <blockpin signalname="XLXN_30(63:0)" name="Line(63:0)" />
+            <blockpin signalname="XLXN_34(63:0)" name="Line(63:0)" />
             <blockpin name="Blank(15:0)" />
             <blockpin signalname="LCD_D(3:0)" name="LCD_D(3:0)" />
             <blockpin signalname="LCD_E" name="LCD_E" />
@@ -166,28 +145,17 @@
             <blockpin name="PSDONE" />
             <blockpin name="STATUS(7:0)" />
         </block>
-        <block symbolname="SHR64" name="XLXI_18">
-            <blockpin signalname="XLXN_31" name="Din" />
-            <blockpin signalname="XLXN_28" name="Clk" />
-            <blockpin signalname="XLXN_33" name="CE" />
-            <blockpin signalname="XLXN_30(63:0)" name="Q(63:0)" />
-        </block>
-        <block symbolname="fsm" name="XLXI_19">
+        <block symbolname="fsm" name="XLXI_21">
             <blockpin signalname="USB_DP" name="DP" />
             <blockpin signalname="USB_DM" name="DM" />
             <blockpin signalname="XLXN_28" name="Clk_60Mhz" />
             <blockpin signalname="LED1" name="synced" />
-            <blockpin signalname="XLXN_31" name="DO" />
-        </block>
-        <block symbolname="inv" name="XLXI_20">
-            <blockpin signalname="LED1" name="I" />
-            <blockpin signalname="XLXN_33" name="O" />
+            <blockpin signalname="XLXN_34(63:0)" name="data(63:0)" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
         <branch name="XLXN_2">
-            <wire x2="816" y1="768" y2="768" x1="800" />
-            <wire x2="832" y1="768" y2="768" x1="816" />
+            <wire x2="832" y1="768" y2="768" x1="800" />
         </branch>
         <branch name="XLXN_3">
             <wire x2="848" y1="1216" y2="1216" x1="800" />
@@ -197,67 +165,29 @@
             <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="CLKFX_DIVIDE" x="480" y="-632" type="instance" />
         </instance>
         <branch name="Clk_50MHz">
-            <wire x2="224" y1="768" y2="768" x1="208" />
-            <wire x2="304" y1="768" y2="768" x1="224" />
+            <wire x2="304" y1="768" y2="768" x1="208" />
             <wire x2="416" y1="768" y2="768" x1="304" />
-            <wire x2="304" y1="640" y2="768" x1="304" />
-            <wire x2="1344" y1="640" y2="640" x1="304" />
-            <wire x2="1344" y1="640" y2="1216" x1="1344" />
+            <wire x2="1344" y1="592" y2="592" x1="304" />
+            <wire x2="1344" y1="592" y2="1216" x1="1344" />
             <wire x2="2368" y1="1216" y2="1216" x1="1344" />
+            <wire x2="304" y1="592" y2="768" x1="304" />
         </branch>
         <branch name="XLXN_5">
             <wire x2="400" y1="656" y2="832" x1="400" />
             <wire x2="416" y1="832" y2="832" x1="400" />
             <wire x2="1120" y1="656" y2="656" x1="400" />
             <wire x2="1120" y1="656" y2="768" x1="1120" />
-            <wire x2="1072" y1="768" y2="768" x1="1056" />
-            <wire x2="1120" y1="768" y2="768" x1="1072" />
+            <wire x2="1120" y1="768" y2="768" x1="1056" />
         </branch>
         <iomarker fontsize="28" x="208" y="768" name="Clk_50MHz" orien="R180" />
         <instance x="832" y="800" name="XLXI_2" orien="R0" />
         <instance x="848" y="1248" name="XLXI_3" orien="R0" />
         <instance x="2368" y="1248" name="XLXI_4" orien="R0">
         </instance>
-        <instance x="1456" y="992" name="XLXI_18" orien="R0">
-        </instance>
-        <instance x="1568" y="1440" name="XLXI_19" orien="R0">
-        </instance>
         <branch name="XLXN_28">
             <wire x2="1264" y1="1216" y2="1216" x1="1072" />
-            <wire x2="1264" y1="1216" y2="1408" x1="1264" />
-            <wire x2="1568" y1="1408" y2="1408" x1="1264" />
             <wire x2="1264" y1="896" y2="1216" x1="1264" />
-            <wire x2="1456" y1="896" y2="896" x1="1264" />
-        </branch>
-        <branch name="XLXN_30(63:0)">
-            <wire x2="2096" y1="832" y2="832" x1="1840" />
-            <wire x2="2096" y1="832" y2="960" x1="2096" />
-            <wire x2="2368" y1="960" y2="960" x1="2096" />
-        </branch>
-        <branch name="XLXN_31">
-            <wire x2="1456" y1="832" y2="832" x1="1392" />
-            <wire x2="1392" y1="832" y2="1056" x1="1392" />
-            <wire x2="2016" y1="1056" y2="1056" x1="1392" />
-            <wire x2="2016" y1="1056" y2="1408" x1="2016" />
-            <wire x2="2016" y1="1408" y2="1408" x1="1952" />
-        </branch>
-        <instance x="1488" y="1600" name="XLXI_20" orien="R0" />
-        <branch name="XLXN_33">
-            <wire x2="1456" y1="960" y2="960" x1="1376" />
-            <wire x2="1376" y1="960" y2="1040" x1="1376" />
-            <wire x2="2032" y1="1040" y2="1040" x1="1376" />
-            <wire x2="2032" y1="1040" y2="1568" x1="2032" />
-            <wire x2="2032" y1="1568" y2="1568" x1="1712" />
-        </branch>
-        <branch name="LED1">
-            <wire x2="1408" y1="1456" y2="1568" x1="1408" />
-            <wire x2="1488" y1="1568" y2="1568" x1="1408" />
-            <wire x2="2160" y1="1456" y2="1456" x1="1408" />
-            <wire x2="2160" y1="1280" y2="1280" x1="1952" />
-            <wire x2="2800" y1="1280" y2="1280" x1="2160" />
-            <wire x2="2800" y1="1280" y2="1552" x1="2800" />
-            <wire x2="2912" y1="1552" y2="1552" x1="2800" />
-            <wire x2="2160" y1="1280" y2="1456" x1="2160" />
+            <wire x2="1600" y1="896" y2="896" x1="1264" />
         </branch>
         <branch name="SF_CE">
             <wire x2="2928" y1="1216" y2="1216" x1="2784" />
@@ -274,27 +204,31 @@
         <branch name="LCD_E">
             <wire x2="2928" y1="960" y2="960" x1="2784" />
         </branch>
-        <branch name="USB_DP">
-            <wire x2="240" y1="960" y2="960" x1="224" />
-            <wire x2="240" y1="672" y2="960" x1="240" />
-            <wire x2="1136" y1="672" y2="672" x1="240" />
-            <wire x2="1136" y1="672" y2="1280" x1="1136" />
-            <wire x2="1568" y1="1280" y2="1280" x1="1136" />
-        </branch>
         <branch name="USB_DM">
-            <wire x2="336" y1="1056" y2="1056" x1="224" />
-            <wire x2="336" y1="1056" y2="1728" x1="336" />
-            <wire x2="864" y1="1728" y2="1728" x1="336" />
-            <wire x2="864" y1="1344" y2="1728" x1="864" />
-            <wire x2="1568" y1="1344" y2="1344" x1="864" />
+            <wire x2="1584" y1="832" y2="832" x1="1536" />
+            <wire x2="1600" y1="832" y2="832" x1="1584" />
         </branch>
-        <iomarker fontsize="28" x="224" y="960" name="USB_DP" orien="R180" />
-        <iomarker fontsize="28" x="224" y="1056" name="USB_DM" orien="R180" />
         <iomarker fontsize="28" x="2928" y="960" name="LCD_E" orien="R0" />
         <iomarker fontsize="28" x="2928" y="1024" name="LCD_RS" orien="R0" />
         <iomarker fontsize="28" x="2928" y="1088" name="LCD_RW" orien="R0" />
         <iomarker fontsize="28" x="2928" y="1152" name="LCD_D(3:0)" orien="R0" />
         <iomarker fontsize="28" x="2928" y="1216" name="SF_CE" orien="R0" />
-        <iomarker fontsize="28" x="2912" y="1552" name="LED1" orien="R0" />
+        <instance x="1600" y="928" name="XLXI_21" orien="R0">
+        </instance>
+        <branch name="XLXN_34(63:0)">
+            <wire x2="2000" y1="960" y2="960" x1="1984" />
+            <wire x2="2368" y1="960" y2="960" x1="2000" />
+        </branch>
+        <branch name="LED1">
+            <wire x2="2000" y1="768" y2="768" x1="1984" />
+            <wire x2="2016" y1="768" y2="768" x1="2000" />
+        </branch>
+        <branch name="USB_DP">
+            <wire x2="1584" y1="768" y2="768" x1="1536" />
+            <wire x2="1600" y1="768" y2="768" x1="1584" />
+        </branch>
+        <iomarker fontsize="28" x="1536" y="768" name="USB_DP" orien="R180" />
+        <iomarker fontsize="28" x="1536" y="832" name="USB_DM" orien="R180" />
+        <iomarker fontsize="28" x="2016" y="768" name="LED1" orien="R0" />
     </sheet>
 </drawing>

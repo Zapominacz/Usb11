@@ -1,0 +1,6 @@
+V3 3
+FL E:/Education/UCISW/Projekt/usb11/fsm.vhd 2016/03/07.21:31:53 P.20131013
+EN work/fsm 0 FL E:/Education/UCISW/Projekt/usb11/fsm.vhd PB ieee/std_logic_1164 1381692176 \
+      PB ieee/STD_LOGIC_UNSIGNED 1381692179 PB ieee/NUMERIC_STD 1381692181
+AR work/fsm/Behavioral 0 \
+      FL E:/Education/UCISW/Projekt/usb11/fsm.vhd EN work/fsm 0

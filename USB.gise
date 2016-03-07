@@ -22,21 +22,26 @@
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="USB.xise"/>
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_LSO" xil_pn:name=".lso"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="LCD1x64.bld"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="LCD1x64.cmd_log"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="LCD1x64_ngdbuild.xrpt"/>
     <file xil_pn:fileType="FILE_SPL" xil_pn:name="SHR64.spl"/>
-    <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="SHR64.sym" xil_pn:origination="imported"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="fsm.prj"/>
     <file xil_pn:fileType="FILE_SPL" xil_pn:name="fsm.spl"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="fsm.stx"/>
     <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="fsm.sym" xil_pn:origination="imported"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="fsm.xst"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
     <transform xil_pn:end_ts="1456845095" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1456845095">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1456845095" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-2931323061550825394" xil_pn:start_ts="1456845095">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -44,6 +49,7 @@
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputChanged"/>
     </transform>
     <transform xil_pn:end_ts="1456845095" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-6679053907725272516" xil_pn:start_ts="1456845095">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -77,6 +83,7 @@
       <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1456845095" xil_pn:in_ck="-4557372700378866591" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="1262981230801306408" xil_pn:start_ts="1456845095">
       <status xil_pn:value="SuccessfullyRun"/>
