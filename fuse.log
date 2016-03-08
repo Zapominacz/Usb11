@@ -1,0 +1,24 @@
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -o C:/Users/lab/usb11/testFsm_isim_beh.exe -prj C:/Users/lab/usb11/testFsm_beh.prj work.testFsm 
+ISim P.20131013 (signature 0x8ef4fb42)
+Number of CPUs detected in this system: 2
+Turning on mult-threading, number of parallel sub-compilation jobs: 4 
+Determining compilation order of HDL files
+Parsing VHDL file "C:/Users/lab/usb11/fsm.vhd" into library work
+Parsing VHDL file "C:/Users/lab/usb11/testFsm.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 103056 KB
+Fuse CPU Usage: 249 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling package numeric_std
+Compiling architecture behavioral of entity fsm [fsm_default]
+Compiling architecture behavior of entity testfsm
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 8 VHDL Units
+Built simulation executable C:/Users/lab/usb11/testFsm_isim_beh.exe
+Fuse Memory Usage: 121920 KB
+Fuse CPU Usage: 436 ms
