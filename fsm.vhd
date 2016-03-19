@@ -16,6 +16,7 @@ architecture behavioral of fsm is
 	-- sync pattern defined in USB 1.1 specification, in NRZI form
 	signal received_bits : std_logic_vector(7 downto 0) := (others => '0');
 	-- received bits for checking if we reach sync pattern
+	-- reused for data bits count
 	signal wave_length_counter : std_logic_vector(2 downto 0) := (others => '0');
 	-- range (0 - 4), used to determine position in usb signal
 	
@@ -23,6 +24,8 @@ architecture behavioral of fsm is
 	-- counts bits to determine when we should check if we caught sync pattern
 	
 	signal i_synced : std_logic := '0'; --internal signal for synced
+	signal i_data : std_logic_vector(63 downto 0) := (others => '0'); --internal for data
+	
 	
 	--- sync machine states ---
 	type state_type is (idle, syncing, is_synced); 
@@ -38,10 +41,11 @@ begin
 		end if;
 	end process state_trigger_process;
 	
+	
 	wave_lenght_counter_process : process(clk_60mhz, state, next_state)
 		begin -- counts actual poisiton in peroid, resets on mod 5 or state change
 		if rising_edge(clk_60mhz) then
-			if(wave_length_counter = "100") then
+			if(wave_length_counter = 4) then
 				wave_length_counter <= (others => '0');
 			elsif(state = idle and next_state = syncing) then
 				wave_length_counter <= "001";
@@ -61,27 +65,31 @@ begin
 					next_state <= syncing;
 				end if;
 			when syncing => -- counts sync bits
-				if(wave_length_counter = "010") then --when we are in the middle of peroid
+				if(wave_length_counter = 2) then --when we are in the middle of peroid
 					received_bits <= received_bits(6 downto 0) & d_p; --moves register with saved bits
 					sync_bits_counter <= sync_bits_counter + 1; -- and increments counter
 				end if;
-				if(sync_bits_counter = "1000") then
+				if(sync_bits_counter = 8) then
 					if(received_bits = sync_pattern) then
 						next_state <= is_synced; --caught sync signal
 					else
 						next_state <= idle; --failed - reset
-						sync_bits_counter <= (others => '0');
-						received_bits <= (others => '0');
 					end if;
+					sync_bits_counter <= (others => '0');
+					received_bits <= (others => '0');
 				end if;
 			when is_synced =>
-				i_synced <= '1';	--indicates the sync occured				
+				i_synced <= '1';	--indicates the sync occured
+				if(wave_length_counter = 2 and received_bits < 64) then
+					i_data <= i_data(62 downto 0) & d_p;
+					received_bits <= received_bits + 1;
+				end if;				
 			end case;
 	end process state_process;
 
 	--- Copying internal signals to destination signals ---
 	synced <= i_synced;
-	
+	data <= i_data;
 	
 	
 

@@ -50,11 +50,11 @@ BEGIN
    -- Simulation process
    simulation: process	
 		begin
-		--wait for PEROID * 3; -- padding
+		wait for PEROID * 3; -- padding
 		--sync pattern
-		l1 : for i in 7 downto 0 loop
-			d_p <= SYNC_PATTERN(i);
-			d_m <= not SYNC_PATTERN(i);
+		l1 : for i in 31 downto 0 loop
+			d_p <= INPUT_PATTERN(i);
+			d_m <= not INPUT_PATTERN(i);
 			l2 : for j in 4 downto 0 loop
 				wait for PEROID;
 			end loop l2;
