@@ -1,5 +1,0 @@
-set -tmpdir "E:/Education/UCISW/Projekt/usb11/xst/projnav.tmp"
-set -xsthdpdir "E:/Education/UCISW/Projekt/usb11/xst"
-elaborate
--ifn fsm.prj
--ifmt mixed

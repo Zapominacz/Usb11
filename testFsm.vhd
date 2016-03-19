@@ -1,25 +1,25 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
  
-ENTITY testFsm IS
-END testFsm;
+ENTITY test_fsm IS
+END test_fsm;
  
-ARCHITECTURE behavior OF testFsm IS 
+ARCHITECTURE behavior OF test_fsm IS 
 
     COMPONENT fsm
     PORT(
-         DP : IN  std_logic;
-         DM : IN  std_logic;
-         Clk_60Mhz : IN  std_logic;
+         d_p : IN  std_logic;
+         d_m : IN  std_logic;
+         clk_60mhz : IN  std_logic;
          synced : OUT  std_logic;
          data : OUT  std_logic_vector(63 downto 0)
         );
     END COMPONENT;
     
    --Inputs
-   signal DP : std_logic := '0';
-   signal DM : std_logic := '1';
-   signal Clk_60Mhz : std_logic := '1';
+   signal d_p : std_logic := '0';
+   signal d_m : std_logic := '1';
+   signal clk_60mhz : std_logic := '1';
 
  	--Outputs
    signal synced : std_logic;
@@ -38,31 +38,31 @@ ARCHITECTURE behavior OF testFsm IS
 BEGIN
 	-- Instantiate the Unit Under Test (UUT)
    uut: fsm PORT MAP (
-          DP => DP,
-          DM => DM,
-          Clk_60Mhz => Clk_60Mhz,
+          d_p => d_p,
+          d_m => d_m,
+          clk_60mhz => clk_60mhz,
           synced => synced,
           data => data
         );
 
-	Clk_60Mhz <= not Clk_60Mhz after HALF_PEROID;
+	clk_60mhz <= not clk_60mhz after HALF_PEROID;
 	
-   -- Stimulus process
+   -- Simulation process
    simulation: process	
 		begin
-		wait for PEROID * 3;
+		--wait for PEROID * 3; -- padding
 		--sync pattern
-		l1 : for i in 31 downto 0 loop
-			DP <= INPUT_PATTERN(i);
-			DM <= not INPUT_PATTERN(i);
+		l1 : for i in 7 downto 0 loop
+			d_p <= SYNC_PATTERN(i);
+			d_m <= not SYNC_PATTERN(i);
 			l2 : for j in 4 downto 0 loop
 				wait for PEROID;
 			end loop l2;
 		end loop l1;
 		--Input data
 		l3 : for i in 63 downto 0 loop
-			DP <= INPUT_DATA(i);
-			DM <= not INPUT_DATA(i);
+			d_p <= INPUT_DATA(i);
+			d_m <= not INPUT_DATA(i);
 			l4 : for j in 4 downto 0 loop
 				wait for PEROID;
 			end loop l4;

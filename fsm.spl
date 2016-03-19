@@ -1,8 +1,0 @@
-[Inputs]
-DP
-DM
-Clk_60Mhz
-[Outputs]
-synced
-=data[63:0]=
-[BiDir]

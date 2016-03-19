@@ -24,3 +24,7 @@ vhdtdtfi -lib work fsm.vhd -prj USB -o fsm.spl -module fsm -template D:/Educatio
 spl2sym -intstyle ise -family spartan3e fsm.spl E:/Education/UCISW/Projekt/usb11/fsm.sym 
 vhdtdtfi -lib work fsm.vhd -prj USB -o fsm.spl -module fsm -template D:/Education/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
 spl2sym -intstyle ise -family spartan3e fsm.spl E:/Education/UCISW/Projekt/usb11/fsm.sym 
+vhdtdtfi -lib work fsm.vhd -prj USB -o fsm.spl -module fsm -template D:/Education/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e fsm.spl E:/Education/UCISW/Projekt/usb11/fsm.sym 
+vhdtdtfi -lib work fsm.vhd -prj USB -o fsm.spl -module fsm -template D:/Education/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e fsm.spl E:/Education/UCISW/Projekt/usb11/fsm.sym 

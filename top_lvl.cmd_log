@@ -1,6 +1,0 @@
-xst -intstyle ise -ifn "C:/Users/lab/usb11/top_lvl.xst" -ofn "C:/Users/lab/usb11/top_lvl.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc PS2_USB_SDC.ucf -uc LCD.ucf -uc GenIO.ucf -p xc3s500e-fg320-5 top_lvl.ngc top_lvl.ngd  
-map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o top_lvl_map.ncd top_lvl.ngd top_lvl.pcf 
-par -w -intstyle ise -ol high -t 1 top_lvl_map.ncd top_lvl.ncd top_lvl.pcf 
-trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml top_lvl.twx top_lvl.ncd -o top_lvl.twr top_lvl.pcf -ucf PS2_USB_SDC.ucf -ucf LCD.ucf -ucf GenIO.ucf 
-bitgen -intstyle ise -f top_lvl.ut top_lvl.ncd 
