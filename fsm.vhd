@@ -26,6 +26,8 @@ architecture behavioral of fsm is
 	signal i_synced : std_logic := '0'; --internal signal for synced
 	signal i_data : std_logic_vector(63 downto 0) := (others => '0'); --internal for data
 	
+	signal decoded_bit : std_logic := '1';
+	signal last_d_p : std_logic := '1';
 	
 	--- sync machine states ---
 	type state_type is (idle, syncing, is_synced); 
@@ -40,6 +42,30 @@ begin
 			state <= next_state;
 		end if;
 	end process state_trigger_process;
+	
+	nrzi_decoder : process(clk_60mhz, d_p)
+		begin
+		if (rising_edge(clk_60mhz) and wave_length_counter = 4) then
+			if(state /= idle or (state = idle and next_state = syncing)) then
+				decoded_bit <= last_d_p xnor d_p;
+				last_d_p <= d_p;
+			else 
+				last_d_p <= '1';
+				decoded_bit <= '1';
+			end if;
+		end if;
+	end process nrzi_decoder;
+	
+--	nrzi_encoder : process(clk_60mhz, d_p)
+--		begin
+--		if (rising_edge(clk_60mhz) and wave_length_counter = 4) then
+--			if(decoded_bit = '0') then
+--				last_dp <= not last_dp;
+--			else 
+--				last_d_p <= last_dp;
+--			end if;
+--		end if;
+--	end process nrzi_encoder;
 	
 	
 	wave_lenght_counter_process : process(clk_60mhz, state, next_state)
@@ -90,47 +116,6 @@ begin
 	--- Copying internal signals to destination signals ---
 	synced <= i_synced;
 	data <= i_data;
-	
-	
-
---	wave_listener : process (d_p, clk_60mhz) 
---	begin
---		if(rising_edge(d_p) and (state = idle)) then
---			state <= syncing;
---		end if;
---		if(rising_edge(clk_60mhz) and (state = syncing)) then
---			if(wave_length_counter = "100") then
---				wave_length_counter <="000";
---			elsif(wave_length_counter = "010") then
---				received_bits <= received_bits(6 downto 0) & d_p;
---				wave_length_counter <= wave_length_counter + 1;
---				if(received_bits = sync_pattern) then
---					sync_pattern_received <= '1';
---					state <= is_synced;
---				end if;
---			else
---				wave_length_counter <= wave_length_counter + 1;
---			end if;
---		end if;
---	end process wave_listener;
-	
---	state_process : process(state, sync_pattern_received)
---	begin
---		next_state <= syncing;
---		
---		case state is
---			when syncing =>
---				if(sync_pattern_received = '1') then
---					next_state <= is_synced;
---				end if;
---			when idle =>
---				if(sync_pattern_received = '1') then
---					next_state <= is_synced;
---				end if;
---			when is_synced =>
---
---			end case;
---	end process state_process;
 
 end Behavioral;
 
