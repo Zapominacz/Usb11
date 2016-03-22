@@ -3,10 +3,10 @@ NET "Clk_50MHz" LOC = "C9" | IOSTANDARD = LVTTL;
 NET "Clk_50MHz" PERIOD = 20.0ns HIGH 50%;
 
 # Ignore cross-clock domain data paths in timing analysis
-#NET "Clk50"  TNM = "TNM_Clk50";
-#NET "ClkSys" TNM = "TNM_ClkSys";
-#TIMESPEC "TS_12" = FROM "TNM_ClkSys" TO "TNM_Clk50"  TIG;
-#TIMESPEC "TS_13" = FROM "TNM_Clk50"  TO "TNM_ClkSys" TIG;
+NET "Clk_50"  TNM = "TNM_Clk50";
+NET "Clk_Sys" TNM = "TNM_ClkSys";
+TIMESPEC "TS_12" = FROM "TNM_ClkSys" TO "TNM_Clk50"  TIG;
+TIMESPEC "TS_13" = FROM "TNM_Clk50"  TO "TNM_ClkSys" TIG;
 
 #
 # Push-buttons (Press = Hi)

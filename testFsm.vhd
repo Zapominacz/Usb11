@@ -33,7 +33,7 @@ ARCHITECTURE behavior OF test_fsm IS
 	constant SYNC_PATTERN : std_logic_vector(7 downto 0) := "01010100";
 	constant INPUT_PATTERN : std_logic_vector(31 downto 0) := "11111111000000001111111101010100";
 	--zawiera SYNC_PATTERN
-	constant INPUT_DATA : std_logic_vector(63 downto 0) := X"FEDCBA9876543210";
+	constant INPUT_DATA : std_logic_vector(63 downto 0) := X"6C3EEF3FFFFFFFFF";
 	
 BEGIN
 	-- Instantiate the Unit Under Test (UUT)

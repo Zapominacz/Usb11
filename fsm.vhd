@@ -15,6 +15,7 @@ architecture behavioral of fsm is
 	constant sync_pattern : std_logic_vector(7 downto 0) := "01010100";
 	-- sync pattern defined in USB 1.1 specification, in NRZI form
 	signal received_bits : std_logic_vector(7 downto 0) := (others => '0');
+	signal sync_received_bits : std_logic_vector(7 downto 0) := (others => '0');
 	-- received bits for checking if we reach sync pattern
 	-- reused for data bits count
 	signal wave_length_counter : std_logic_vector(2 downto 0) := (others => '0');
@@ -23,7 +24,6 @@ architecture behavioral of fsm is
 	signal sync_bits_counter : std_logic_vector(3 downto 0) := (others => '0');
 	-- counts bits to determine when we should check if we caught sync pattern
 	
-	signal i_synced : std_logic := '0'; --internal signal for synced
 	signal i_data : std_logic_vector(63 downto 0) := (others => '0'); --internal for data
 	
 	signal decoded_bit : std_logic := '1';
@@ -43,14 +43,14 @@ begin
 		end if;
 	end process state_trigger_process;
 	
-	nrzi_decoder : process(clk_60mhz, d_p)
+	nrzi_decoder : process(clk_60mhz, wave_length_counter, state, d_p) --TODO bit stuffing!!!
 		begin
-		if (rising_edge(clk_60mhz) and wave_length_counter = 4) then
-			if(state /= idle or (state = idle and next_state = syncing)) then
+		if (rising_edge(clk_60mhz) and wave_length_counter = 2) then
+			if(state = is_synced) then
 				decoded_bit <= last_d_p xnor d_p;
 				last_d_p <= d_p;
 			else 
-				last_d_p <= '1';
+				last_d_p <= '0';
 				decoded_bit <= '1';
 			end if;
 		end if;
@@ -68,7 +68,7 @@ begin
 --	end process nrzi_encoder;
 	
 	
-	wave_lenght_counter_process : process(clk_60mhz, state, next_state)
+	wave_lenght_counter_process : process(clk_60mhz, state, next_state) --TODO cleanup!!!
 		begin -- counts actual poisiton in peroid, resets on mod 5 or state change
 		if rising_edge(clk_60mhz) then
 			if(wave_length_counter = 4) then
@@ -81,9 +81,10 @@ begin
 		end if;
 	end process wave_lenght_counter_process;
 
-	state_process : process(state, wave_length_counter) 
+	state_process : process(state, d_p, sync_bits_counter, sync_received_bits) 
 		begin --based on default template, used only for state changing
 		next_state <= state;
+
 		
 		case state is
 			when idle =>
@@ -91,30 +92,57 @@ begin
 					next_state <= syncing;
 				end if;
 			when syncing => -- counts sync bits
-				if(wave_length_counter = 2) then --when we are in the middle of peroid
-					received_bits <= received_bits(6 downto 0) & d_p; --moves register with saved bits
-					sync_bits_counter <= sync_bits_counter + 1; -- and increments counter
-				end if;
 				if(sync_bits_counter = 8) then
-					if(received_bits = sync_pattern) then
+					if(sync_received_bits = sync_pattern) then
 						next_state <= is_synced; --caught sync signal
 					else
 						next_state <= idle; --failed - reset
 					end if;
-					sync_bits_counter <= (others => '0');
-					received_bits <= (others => '0');
 				end if;
 			when is_synced =>
-				i_synced <= '1';	--indicates the sync occured
-				if(wave_length_counter = 2 and received_bits < 64) then
-					i_data <= i_data(62 downto 0) & d_p;
-					received_bits <= received_bits + 1;
-				end if;				
+				
 			end case;
 	end process state_process;
+	
+	register_process : process(clk_60mhz, state, wave_length_counter)
+		begin
+		if(rising_edge(clk_60mhz) and state = is_synced) then
+			if(wave_length_counter = 2 and received_bits < 64) then
+				i_data <= i_data(62 downto 0) & (last_d_p xnor d_p);
+				received_bits <= received_bits + 1;
+			end if;	
+		end if;
+	end process register_process;
+						
+	
+	sync_counter_process : process(clk_60mhz, state, wave_length_counter)
+		begin
+		if(rising_edge(clk_60mhz)) then
+			if(state = syncing) then
+				if(wave_length_counter = 2) then --when we are in the middle of peroid
+					sync_received_bits <= sync_received_bits(6 downto 0) & d_p; --moves register with saved bits
+					sync_bits_counter <= sync_bits_counter + 1; -- and increments counter
+				end if;
+				if(sync_bits_counter = 8) then
+					sync_bits_counter <= (others => '0');
+					sync_received_bits <= (others => '0');
+				end if;
+			end if;
+		end if;
+	end process sync_counter_process;
+	
+	sync_satus : process(clk_60mhz, state)
+		begin
+		if(rising_edge(clk_60mhz)) then
+			if(state = is_synced) then
+				synced <= '1';
+			else
+				synced <= '0';
+			end if;
+		end if;
+	end process sync_satus;
 
 	--- Copying internal signals to destination signals ---
-	synced <= i_synced;
 	data <= i_data;
 
 end Behavioral;
