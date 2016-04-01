@@ -9,7 +9,12 @@ entity fsm is
            synced : out  STD_LOGIC; -- is synced
            data : out  std_logic_vector(63 downto 0)); -- output bit from USB
 end fsm;
-
+--TODO: Zg³aszaæ odbiór paczki z danymi
+-- EOP
+-- wyswietlanie na lcd
+-- reived - byte
+-- impuls EOP (busy np)
+-- skzynkal która bêdzie dzieli³a n 8 bit od SOP do EOP z bit stuffingiem
 architecture behavioral of fsm is
 
 	constant sync_pattern : std_logic_vector(7 downto 0) := "01010100";
