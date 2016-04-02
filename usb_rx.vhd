@@ -35,12 +35,14 @@ architecture behavioral of usb_rx is
 	signal received_bits : std_logic_vector(3 downto 0) := (others => '0');
 	-- received bits counter (0-8)
 	
+	signal i_received : std_logic;
+	
 	-- NRZI encoding
 	signal last_d_p : std_logic;
 	
 	-- usb sequences
 	signal eop_signal : std_logic; -- indicates end of packet
-	signal se0_signal_counter : std_logic_vector(1 downto 0) := (others => '0');
+	signal se0_signal_counter : std_logic_vector(2 downto 0) := (others => '0');
 	
 	-- Bit stuffing
 	signal encoding_error : std_logic; -- indicates erorr during encoding
@@ -53,17 +55,16 @@ architecture behavioral of usb_rx is
 	
 begin
 
-	usb_sequence_process : process(clk_60mhz, d_p, d_m)
+	usb_sequence_process : process(clk_60mhz, d_p, d_m, wave_length_counter)
 		begin -- determines eop_signal
 		if(rising_edge(clk_60mhz) and wave_length_counter = 2) then
+			se0_signal_counter <=(others => '0');
+			eop_signal <= '0';
 			if(d_p = '0' and d_m = '0') then
 				se0_signal_counter <= se0_signal_counter + 1;
-				if(se0_signal_counter > 1) then
+				if(se0_signal_counter > 0) then
 					eop_signal <= '1';
 				end if;
-			else
-				se0_signal_counter <=(others => '0');
-				eop_signal <= '0';
 			end if;
 		end if;
 	end process usb_sequence_process;
@@ -89,17 +90,21 @@ begin
 	bit_decoder : process(clk_60mhz, wave_length_counter, sync_state, d_p, d_m)
 		begin
 		if (rising_edge(clk_60mhz)) then
-			if(sync_state /= synced) then
-				last_d_p <= '0';
-			elsif(wave_length_counter = 2) then
+			if(wave_length_counter = 2) then
 				last_d_p <= d_p;
-				if(high_state_lenght > 6) then --TODO ignore bit stuff crc error
+				if(high_state_lenght > 6) then
+				
+				elsif(received_bits = 8) then
+					i_rx_byte <= "0000000" & (last_d_p xnor d_p);
+					received_bits <= X"1";
+				else --TODO ignore bit stuff crc error
 					i_rx_byte <= i_rx_byte(6 downto 0) & (last_d_p xnor d_p);
 					received_bits <= received_bits + 1;
 				end if;
-			elsif(received_bits = 8) then
+			elsif(sync_state /= synced) then
 				i_rx_byte <= (others => '0');
 				received_bits <= (others => '0');
+				last_d_p <= '0';
 			end if;
 		end if;
 	end process bit_decoder;
@@ -165,13 +170,15 @@ begin
 		end if;
 	end process busy_indication_process;
 	
-	receive_pulse_process : process(clk_60mhz, received_bits)
+	receive_pulse_process : process(clk_60mhz, i_received, received_bits)
 		begin --process to create pulse indicating receive
 		if(rising_edge(clk_60mhz)) then
-			if(received_bits = 8) then
+			received <= '0';
+			if(received_bits = 7) then
+				i_received <= '1';
+			elsif(received_bits = 8 and i_received = '1') then
+				i_received <= '0';
 				received <= '1';
-			else
-				received <= '0';
 			end if;
 		end if;
 	end process receive_pulse_process;

@@ -66,6 +66,7 @@
    <wvobject fp_name="/test_usb_rx/uut/i_rx_byte" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">i_rx_byte[7:0]</obj_property>
       <obj_property name="ObjectShortName">i_rx_byte[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_usb_rx/uut/received_bits" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">received_bits[3:0]</obj_property>
