@@ -92,14 +92,15 @@ begin
 		if (rising_edge(clk_60mhz)) then
 			if(wave_length_counter = 2) then
 				last_d_p <= d_p;
-				if(high_state_lenght > 6) then
-				
-				elsif(received_bits = 8) then
-					i_rx_byte <= "0000000" & (last_d_p xnor d_p);
-					received_bits <= X"1";
-				else --TODO ignore bit stuff crc error
-					i_rx_byte <= i_rx_byte(6 downto 0) & (last_d_p xnor d_p);
-					received_bits <= received_bits + 1;
+				if(high_state_lenght = 6 and d_p = '0' and d_m = '1') then
+					null;
+				else
+					i_rx_byte <= (last_d_p xnor d_p) & i_rx_byte(7 downto 1);
+					if(received_bits = 8) then
+						received_bits <= X"1";
+					else --TODO ignore bit stuff crc error
+						received_bits <= received_bits + 1;
+					end if;
 				end if;
 			elsif(sync_state /= synced) then
 				i_rx_byte <= (others => '0');
@@ -162,7 +163,7 @@ begin
 	busy_indication_process : process(clk_60mhz, sync_state)
 		begin -- process indicates that device is busy
 		if(rising_edge(clk_60mhz)) then
-			if(sync_state = synced) then
+			if(next_sync_state = synced) then
 				busy <= '1';
 			else
 				busy <= '0';
