@@ -31,9 +31,10 @@ ARCHITECTURE behavior OF test_usb_rx IS
 	constant QUARTER_PEROID : TIME := PEROID / 4;
  
 	constant SYNC_PATTERN : std_logic_vector(7 downto 0) := "01010100";
-	constant INPUT_PATTERN : std_logic_vector(31 downto 0) := "11111111000000001111111101010100";
+	constant INPUT_PATTERN : std_logic_vector(15 downto 0) := "0101010101010100";
 	--zawiera SYNC_PATTERN
 	constant INPUT_DATA : std_logic_vector(23 downto 0) := X"6C3EEF"; --A5DE67
+	constant INPUT_DATA2 : std_logic_vector(8 downto 0) := "011111101";
 	
 BEGIN
 	-- Instantiate the Unit Under Test (UUT)
@@ -53,7 +54,7 @@ BEGIN
 		begin
 		d_p <= '1';
 		d_m <= '0';
-		wait for PEROID * 3; -- padding
+		wait for 5 * PEROID;
 		--sync pattern
 		l1 : for i in 7 downto 0 loop
 			d_p <= SYNC_PATTERN(i);
@@ -63,19 +64,16 @@ BEGIN
 			end loop l2;
 		end loop l1;
 		--Input data
-		l3 : for i in 23 downto 0 loop
-			d_p <= INPUT_DATA(i);
-			d_m <= not INPUT_DATA(i);
+		l3 : for i in 8 downto 0 loop
+			d_p <= INPUT_DATA2(i);
+			d_m <= not INPUT_DATA2(i);
 			l4 : for j in 4 downto 0 loop
 				wait for PEROID;
 			end loop l4;
 		end loop l3;
 		d_p <= '0';
 		d_m <= '0';
-		wait for 2 * 5 * PEROID;
-		d_p <= '1';
-		d_m <= '0';
-		wait for 5 * PEROID;
+		wait for 10 * PEROID;
    end process simulation;
 
 END;
