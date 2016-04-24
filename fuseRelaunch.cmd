@@ -1,1 +1,0 @@
--intstyle "ise" -incremental -o "E:/Education/UCISW/Projekt/usb11/test_usb_rx_isim_beh.exe" -prj "E:/Education/UCISW/Projekt/usb11/test_usb_rx_beh.prj" "work.test_usb_rx" 

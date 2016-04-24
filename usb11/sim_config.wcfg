@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="E:/Education/UCISW/Projekt/usb11/test_usb_rx_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="test_usb_rx" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="13" />
+   <wvobject fp_name="/test_usb_rx/uut/d_p" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">d_p</obj_property>
+      <obj_property name="ObjectShortName">d_p</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_usb_rx/uut/last_d_p" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">last_d_p</obj_property>
+      <obj_property name="ObjectShortName">last_d_p</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_usb_rx/uut/d_m" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">d_m</obj_property>
+      <obj_property name="ObjectShortName">d_m</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_usb_rx/uut/clk_60mhz" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_60mhz</obj_property>
+      <obj_property name="ObjectShortName">clk_60mhz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_usb_rx/uut/busy" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">busy</obj_property>
+      <obj_property name="ObjectShortName">busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_usb_rx/uut/received" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">received</obj_property>
+      <obj_property name="ObjectShortName">received</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_usb_rx/uut/wave_length_counter" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wave_length_counter[2:0]</obj_property>
+      <obj_property name="ObjectShortName">wave_length_counter[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_usb_rx/uut/i_rx_byte" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">i_rx_byte[7:0]</obj_property>
+      <obj_property name="ObjectShortName">i_rx_byte[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_usb_rx/uut/received_bits" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">received_bits[3:0]</obj_property>
+      <obj_property name="ObjectShortName">received_bits[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_usb_rx/uut/se0_signal_counter" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">se0_signal_counter[2:0]</obj_property>
+      <obj_property name="ObjectShortName">se0_signal_counter[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_usb_rx/uut/high_state_lenght" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">high_state_lenght[3:0]</obj_property>
+      <obj_property name="ObjectShortName">high_state_lenght[3:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_usb_rx/uut/sync_state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">sync_state</obj_property>
+      <obj_property name="ObjectShortName">sync_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_usb_rx/uut/next_sync_state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">next_sync_state</obj_property>
+      <obj_property name="ObjectShortName">next_sync_state</obj_property>
+   </wvobject>
+</wave_config>

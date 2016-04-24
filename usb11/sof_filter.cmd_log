@@ -1,0 +1,6 @@
+vhdtdtfi -lib work sof_filter.vhd -prj USB -o sof_filter.spl -module sof_filter -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+vhdtdtfi -lib work sof_filter.vhd -prj USB -o sof_filter.spl -module sof_filter -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+vhdtdtfi -lib work sof_filter.vhd -prj USB -o sof_filter.spl -module sof_filter -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e sof_filter.spl C:/Users/lab/Desktop/usb45/usb11/sof_filter.sym 
+vhdtdtfi -lib work sof_filter.vhd -prj USB -o sof_filter.spl -module sof_filter -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e sof_filter.spl C:/Users/lab/Desktop/usb45/usb11/sof_filter.sym 

@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=E:\Education\UCISW\Projekt\usb11\top_lvl.ncd
-OUTFILE=E:\Education\UCISW\Projekt\usb11\top_lvl.bit
-FAMILY=Spartan3E
-PART=xc3s500e-5fg320
-WORKINGDIR=E:\Education\UCISW\Projekt\usb11
-LICENSE=WebPack
-USER_INFO=211102715_0_0_956

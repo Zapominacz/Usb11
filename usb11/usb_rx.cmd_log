@@ -1,0 +1,2 @@
+vhdtdtfi -lib work usb_rx.vhd -prj USB -o usb_rx.spl -module usb_rx -template D:/Education/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e usb_rx.spl E:/Education/UCISW/Projekt/usb11/usb_rx.sym 
