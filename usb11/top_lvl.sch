@@ -7,17 +7,12 @@
     </attr>
     <netlist>
         <signal name="Clk_50MHz" />
-        <signal name="Clk_Sys" />
         <signal name="USB_DM" />
         <signal name="USB_DP" />
         <signal name="XLXN_3" />
         <signal name="XLXN_2" />
         <signal name="VGA_HS" />
         <signal name="VGA_VS" />
-        <signal name="XLXN_7" />
-        <signal name="VGA_R" />
-        <signal name="VGA_G" />
-        <signal name="VGA_B" />
         <signal name="XLXN_75(7:0)" />
         <signal name="XLXN_76(7:0)" />
         <signal name="XLXN_77" />
@@ -30,17 +25,45 @@
         <signal name="Clk_50" />
         <signal name="XLXN_109(7:0)" />
         <signal name="XLXN_110" />
-        <signal name="XLXN_111" />
         <signal name="XLXN_112" />
         <signal name="XLXN_115" />
+        <signal name="XLXN_7" />
+        <signal name="XLXN_124" />
+        <signal name="XLXN_132" />
+        <signal name="XLXN_133" />
+        <signal name="XLXN_134" />
+        <signal name="XLXN_135" />
+        <signal name="XLXN_136" />
+        <signal name="XLXN_138(7:0)" />
+        <signal name="XLXN_141" />
+        <signal name="XLXN_111" />
+        <signal name="VGA_R" />
+        <signal name="VGA_B" />
+        <signal name="VGA_G" />
+        <signal name="XLXN_145(7:0)" />
+        <signal name="XLXN_149" />
+        <signal name="XLXN_155" />
+        <signal name="XLXN_157(7:0)" />
+        <signal name="XLXN_160" />
+        <signal name="XLXN_162(7:0)" />
+        <signal name="XLXN_171" />
+        <signal name="XLXN_173" />
+        <signal name="XLXN_175" />
+        <signal name="XLXN_177" />
+        <signal name="XLXN_178" />
+        <signal name="XLXN_179" />
+        <signal name="XLXN_180" />
+        <signal name="XLXN_181" />
+        <signal name="XLXN_182" />
+        <signal name="XLXN_184" />
         <port polarity="Input" name="Clk_50MHz" />
         <port polarity="Input" name="USB_DM" />
         <port polarity="Input" name="USB_DP" />
         <port polarity="Output" name="VGA_HS" />
         <port polarity="Output" name="VGA_VS" />
         <port polarity="Output" name="VGA_R" />
-        <port polarity="Output" name="VGA_G" />
         <port polarity="Output" name="VGA_B" />
+        <port polarity="Output" name="VGA_G" />
         <blockdef name="dcm_sp">
             <timestamp>2007-4-11T22:49:47</timestamp>
             <line x2="0" y1="-832" y2="-832" x1="64" />
@@ -181,10 +204,10 @@
             <rect width="256" x="64" y="-256" height="320" />
         </blockdef>
         <block symbolname="FSM_SendByte" name="XLXI_7">
-            <blockpin signalname="Clk_Sys" name="Clk" />
+            <blockpin signalname="XLXN_184" name="Clk" />
             <blockpin name="Reset" />
             <blockpin signalname="XLXN_110" name="DIRdy" />
-            <blockpin signalname="XLXN_101" name="TxBusy" />
+            <blockpin signalname="XLXN_141" name="TxBusy" />
             <blockpin signalname="XLXN_109(7:0)" name="DI(7:0)" />
             <blockpin signalname="XLXN_77" name="DORdy" />
             <blockpin signalname="XLXN_100" name="Busy" />
@@ -193,14 +216,14 @@
         <block symbolname="usb_rx" name="XLXI_6">
             <blockpin signalname="USB_DP" name="d_p" />
             <blockpin signalname="USB_DM" name="d_m" />
-            <blockpin signalname="Clk_Sys" name="clk_60mhz" />
+            <blockpin signalname="XLXN_184" name="clk_60mhz" />
             <blockpin signalname="XLXN_111" name="busy" />
             <blockpin signalname="XLXN_112" name="received" />
             <blockpin signalname="XLXN_75(7:0)" name="rx_byte(7:0)" />
         </block>
         <block symbolname="bufg" name="XLXI_3">
             <blockpin signalname="XLXN_3" name="I" />
-            <blockpin signalname="Clk_Sys" name="O" />
+            <blockpin signalname="XLXN_184" name="O" />
         </block>
         <block symbolname="bufg" name="XLXI_2">
             <blockpin signalname="XLXN_2" name="I" />
@@ -240,34 +263,34 @@
         <block symbolname="VGAtxt48x20" name="XLXI_8">
             <blockpin signalname="XLXN_76(7:0)" name="Char_DI(7:0)" />
             <blockpin name="Home" />
-            <blockpin signalname="XLXN_93" name="NewLine" />
+            <blockpin signalname="XLXN_149" name="NewLine" />
             <blockpin name="Goto00" />
-            <blockpin signalname="Clk_Sys" name="Clk_Sys" />
+            <blockpin signalname="XLXN_184" name="Clk_Sys" />
             <blockpin signalname="Clk_50" name="Clk_50MHz" />
             <blockpin name="CursorOn" />
             <blockpin signalname="XLXN_103" name="ScrollEn" />
             <blockpin signalname="XLXN_102" name="ScrollClear" />
-            <blockpin signalname="XLXN_101" name="Busy" />
+            <blockpin signalname="XLXN_141" name="Busy" />
             <blockpin signalname="VGA_HS" name="VGA_HS" />
             <blockpin signalname="VGA_VS" name="VGA_VS" />
             <blockpin signalname="XLXN_7" name="VGA_RGB" />
             <blockpin signalname="XLXN_77" name="Char_WE" />
         </block>
-        <block symbolname="buf" name="XLXI_10">
-            <blockpin signalname="XLXN_7" name="I" />
-            <blockpin signalname="VGA_R" name="O" />
-        </block>
         <block symbolname="newline_fsm" name="XLXI_40">
             <blockpin signalname="XLXN_111" name="received" />
-            <blockpin signalname="Clk_Sys" name="clk" />
+            <blockpin signalname="XLXN_184" name="clk" />
             <blockpin signalname="XLXN_99" name="busy" />
-            <blockpin signalname="XLXN_93" name="newline" />
+            <blockpin signalname="XLXN_149" name="newline" />
             <blockpin signalname="XLXN_115" name="should_block" />
         </block>
-        <block symbolname="or2" name="XLXI_41">
-            <blockpin signalname="XLXN_101" name="I0" />
-            <blockpin signalname="XLXN_100" name="I1" />
-            <blockpin signalname="XLXN_99" name="O" />
+        <block symbolname="sof_filter" name="XLXI_45">
+            <blockpin signalname="XLXN_111" name="new_line" />
+            <blockpin signalname="XLXN_112" name="received" />
+            <blockpin signalname="XLXN_184" name="clk" />
+            <blockpin signalname="XLXN_75(7:0)" name="rx_byte(7:0)" />
+            <blockpin signalname="XLXN_110" name="DIRdy" />
+            <blockpin signalname="XLXN_109(7:0)" name="DI(7:0)" />
+            <blockpin signalname="XLXN_115" name="should_block" />
         </block>
         <block symbolname="vcc" name="XLXI_42">
             <blockpin signalname="XLXN_103" name="P" />
@@ -275,216 +298,173 @@
         <block symbolname="vcc" name="XLXI_43">
             <blockpin signalname="XLXN_102" name="P" />
         </block>
-        <block symbolname="gnd" name="XLXI_33">
-            <blockpin signalname="VGA_G" name="G" />
+        <block symbolname="or2" name="XLXI_51">
+            <blockpin signalname="XLXN_100" name="I0" />
+            <blockpin signalname="XLXN_141" name="I1" />
+            <blockpin signalname="XLXN_99" name="O" />
         </block>
-        <block symbolname="buf" name="XLXI_44">
+        <block symbolname="gnd" name="XLXI_48">
+            <blockpin signalname="VGA_B" name="G" />
+        </block>
+        <block symbolname="gnd" name="XLXI_46">
+            <blockpin signalname="VGA_R" name="G" />
+        </block>
+        <block symbolname="buf" name="XLXI_47">
             <blockpin signalname="XLXN_7" name="I" />
-            <blockpin signalname="VGA_B" name="O" />
-        </block>
-        <block symbolname="sof_filter" name="XLXI_45">
-            <blockpin signalname="XLXN_111" name="new_line" />
-            <blockpin signalname="XLXN_112" name="received" />
-            <blockpin signalname="Clk_Sys" name="clk" />
-            <blockpin signalname="XLXN_75(7:0)" name="rx_byte(7:0)" />
-            <blockpin signalname="XLXN_110" name="DIRdy" />
-            <blockpin signalname="XLXN_109(7:0)" name="DI(7:0)" />
-            <blockpin signalname="XLXN_115" name="should_block" />
+            <blockpin signalname="VGA_G" name="O" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
-        <branch name="USB_DP">
-            <wire x2="1152" y1="1408" y2="1408" x1="1120" />
-        </branch>
         <branch name="XLXN_3">
-            <wire x2="640" y1="1216" y2="1216" x1="624" />
+            <wire x2="1136" y1="1216" y2="1216" x1="896" />
         </branch>
         <branch name="XLXN_2">
-            <wire x2="672" y1="768" y2="768" x1="624" />
+            <wire x2="928" y1="768" y2="768" x1="896" />
         </branch>
         <branch name="Clk_50MHz">
-            <wire x2="240" y1="768" y2="768" x1="208" />
-        </branch>
-        <instance x="672" y="800" name="XLXI_2" orien="R0" />
-        <branch name="Clk_Sys">
-            <wire x2="864" y1="1216" y2="1312" x1="864" />
-            <wire x2="864" y1="1312" y2="1536" x1="864" />
-            <wire x2="1152" y1="1536" y2="1536" x1="864" />
-            <wire x2="1280" y1="1312" y2="1312" x1="864" />
-            <wire x2="1184" y1="672" y2="672" x1="1152" />
-            <wire x2="1152" y1="672" y2="1056" x1="1152" />
-            <wire x2="1280" y1="1056" y2="1056" x1="1152" />
-            <wire x2="1712" y1="1056" y2="1056" x1="1280" />
-            <wire x2="1280" y1="1056" y2="1216" x1="1280" />
-            <wire x2="1280" y1="1216" y2="1312" x1="1280" />
-            <wire x2="1296" y1="1216" y2="1216" x1="1280" />
-            <wire x2="1632" y1="1216" y2="1216" x1="1296" />
-            <wire x2="1632" y1="1216" y2="1472" x1="1632" />
-            <wire x2="2384" y1="1472" y2="1472" x1="1632" />
-            <wire x2="1296" y1="1136" y2="1216" x1="1296" />
-            <wire x2="2128" y1="1136" y2="1136" x1="1296" />
-            <wire x2="2128" y1="1136" y2="1312" x1="2128" />
-            <wire x2="2128" y1="1312" y2="1312" x1="2096" />
+            <wire x2="512" y1="768" y2="768" x1="496" />
         </branch>
         <branch name="USB_DM">
-            <wire x2="1152" y1="1472" y2="1472" x1="1120" />
+            <wire x2="1360" y1="912" y2="912" x1="1328" />
         </branch>
-        <iomarker fontsize="28" x="208" y="768" name="Clk_50MHz" orien="R180" />
-        <instance x="240" y="1728" name="XLXI_1" orien="R0">
+        <branch name="VGA_HS">
+            <wire x2="3376" y1="800" y2="800" x1="3120" />
+        </branch>
+        <branch name="VGA_VS">
+            <wire x2="3376" y1="864" y2="864" x1="3120" />
+        </branch>
+        <branch name="XLXN_75(7:0)">
+            <wire x2="1808" y1="976" y2="976" x1="1744" />
+        </branch>
+        <branch name="XLXN_76(7:0)">
+            <wire x2="2688" y1="800" y2="800" x1="2640" />
+        </branch>
+        <branch name="Clk_50">
+            <wire x2="512" y1="624" y2="832" x1="512" />
+            <wire x2="1168" y1="624" y2="624" x1="512" />
+            <wire x2="1168" y1="624" y2="768" x1="1168" />
+            <wire x2="2272" y1="624" y2="624" x1="1168" />
+            <wire x2="2272" y1="624" y2="1408" x1="2272" />
+            <wire x2="2688" y1="1408" y2="1408" x1="2272" />
+            <wire x2="1168" y1="768" y2="768" x1="1152" />
+        </branch>
+        <branch name="XLXN_7">
+            <wire x2="3136" y1="928" y2="928" x1="3120" />
+        </branch>
+        <instance x="2656" y="1312" name="XLXI_42" orien="R270" />
+        <instance x="2656" y="1376" name="XLXI_43" orien="R270" />
+        <instance x="2256" y="1088" name="XLXI_7" orien="R0">
+        </instance>
+        <branch name="XLXN_100">
+            <wire x2="2640" y1="1216" y2="1216" x1="2512" />
+            <wire x2="2640" y1="928" y2="1216" x1="2640" />
+        </branch>
+        <branch name="XLXN_99">
+            <wire x2="2256" y1="1248" y2="1248" x1="2208" />
+        </branch>
+        <instance x="2512" y="1152" name="XLXI_51" orien="R180" />
+        <branch name="XLXN_115">
+            <wire x2="2224" y1="1040" y2="1040" x1="2192" />
+            <wire x2="2224" y1="1040" y2="1184" x1="2224" />
+            <wire x2="2224" y1="1184" y2="1184" x1="2208" />
+        </branch>
+        <branch name="XLXN_141">
+            <wire x2="2256" y1="928" y2="928" x1="2240" />
+            <wire x2="2240" y1="928" y2="1520" x1="2240" />
+            <wire x2="2512" y1="1520" y2="1520" x1="2240" />
+            <wire x2="3120" y1="1520" y2="1520" x1="2512" />
+            <wire x2="2512" y1="1280" y2="1520" x1="2512" />
+            <wire x2="3120" y1="1056" y2="1520" x1="3120" />
+        </branch>
+        <instance x="2208" y="1280" name="XLXI_40" orien="R180">
+        </instance>
+        <branch name="VGA_R">
+            <wire x2="3376" y1="752" y2="752" x1="3360" />
+        </branch>
+        <branch name="VGA_B">
+            <wire x2="3376" y1="704" y2="704" x1="3360" />
+        </branch>
+        <instance x="3232" y="640" name="XLXI_48" orien="R90" />
+        <instance x="3232" y="688" name="XLXI_46" orien="R90" />
+        <branch name="VGA_G">
+            <wire x2="3376" y1="928" y2="928" x1="3360" />
+        </branch>
+        <instance x="3136" y="960" name="XLXI_47" orien="R0" />
+        <iomarker fontsize="28" x="3376" y="800" name="VGA_HS" orien="R0" />
+        <iomarker fontsize="28" x="3376" y="704" name="VGA_B" orien="R0" />
+        <iomarker fontsize="28" x="3376" y="752" name="VGA_R" orien="R0" />
+        <iomarker fontsize="28" x="3376" y="864" name="VGA_VS" orien="R0" />
+        <iomarker fontsize="28" x="3376" y="928" name="VGA_G" orien="R0" />
+        <branch name="XLXN_77">
+            <wire x2="2688" y1="864" y2="864" x1="2640" />
+        </branch>
+        <branch name="XLXN_103">
+            <wire x2="2688" y1="1248" y2="1248" x1="2656" />
+        </branch>
+        <branch name="XLXN_102">
+            <wire x2="2688" y1="1312" y2="1312" x1="2656" />
+        </branch>
+        <instance x="2688" y="1408" name="XLXI_8" orien="R0">
+        </instance>
+        <branch name="XLXN_149">
+            <wire x2="1824" y1="1376" y2="1488" x1="1824" />
+            <wire x2="2672" y1="1488" y2="1488" x1="1824" />
+            <wire x2="2688" y1="1024" y2="1024" x1="2672" />
+            <wire x2="2672" y1="1024" y2="1488" x1="2672" />
+        </branch>
+        <branch name="XLXN_109(7:0)">
+            <wire x2="2208" y1="976" y2="976" x1="2192" />
+            <wire x2="2208" y1="800" y2="976" x1="2208" />
+            <wire x2="2256" y1="800" y2="800" x1="2208" />
+        </branch>
+        <branch name="XLXN_110">
+            <wire x2="2224" y1="784" y2="784" x1="2192" />
+            <wire x2="2224" y1="784" y2="864" x1="2224" />
+            <wire x2="2256" y1="864" y2="864" x1="2224" />
+        </branch>
+        <branch name="XLXN_112">
+            <wire x2="1776" y1="912" y2="912" x1="1744" />
+            <wire x2="1776" y1="848" y2="912" x1="1776" />
+            <wire x2="1808" y1="848" y2="848" x1="1776" />
+        </branch>
+        <instance x="1808" y="1008" name="XLXI_45" orien="R0">
+        </instance>
+        <branch name="USB_DP">
+            <wire x2="1360" y1="848" y2="848" x1="1328" />
+        </branch>
+        <instance x="1360" y="1008" name="XLXI_6" orien="R0">
+        </instance>
+        <branch name="XLXN_111">
+            <wire x2="1760" y1="848" y2="848" x1="1744" />
+            <wire x2="1760" y1="848" y2="1520" x1="1760" />
+            <wire x2="2208" y1="1520" y2="1520" x1="1760" />
+            <wire x2="1760" y1="784" y2="848" x1="1760" />
+            <wire x2="1808" y1="784" y2="784" x1="1760" />
+            <wire x2="2208" y1="1376" y2="1520" x1="2208" />
+        </branch>
+        <iomarker fontsize="28" x="1328" y="848" name="USB_DP" orien="R180" />
+        <iomarker fontsize="28" x="1328" y="912" name="USB_DM" orien="R180" />
+        <instance x="928" y="800" name="XLXI_2" orien="R0" />
+        <instance x="1136" y="1248" name="XLXI_3" orien="R0" />
+        <instance x="512" y="1728" name="XLXI_1" orien="R0">
             <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="CLKFX_MULTIPLY" x="480" y="-584" type="instance" />
             <attrtext style="fontsize:28;fontname:Arial;displayformat:NAMEEQUALSVALUE" attrname="CLKFX_DIVIDE" x="480" y="-632" type="instance" />
         </instance>
-        <iomarker fontsize="28" x="1120" y="1472" name="USB_DM" orien="R180" />
-        <instance x="1152" y="1568" name="XLXI_6" orien="R0">
-        </instance>
-        <iomarker fontsize="28" x="1120" y="1408" name="USB_DP" orien="R180" />
-        <instance x="2384" y="1408" name="XLXI_8" orien="R0">
-        </instance>
-        <branch name="VGA_HS">
-            <wire x2="2832" y1="800" y2="800" x1="2816" />
-            <wire x2="3328" y1="800" y2="800" x1="2832" />
-        </branch>
-        <branch name="VGA_VS">
-            <wire x2="2832" y1="864" y2="864" x1="2816" />
-            <wire x2="3328" y1="864" y2="864" x1="2832" />
-        </branch>
-        <instance x="1712" y="1088" name="XLXI_7" orien="R0">
-        </instance>
-        <branch name="XLXN_75(7:0)">
-            <wire x2="1088" y1="448" y2="736" x1="1088" />
-            <wire x2="1184" y1="736" y2="736" x1="1088" />
-            <wire x2="1600" y1="448" y2="448" x1="1088" />
-            <wire x2="1600" y1="448" y2="912" x1="1600" />
-            <wire x2="1616" y1="912" y2="912" x1="1600" />
-            <wire x2="1616" y1="912" y2="1536" x1="1616" />
-            <wire x2="1616" y1="1536" y2="1536" x1="1536" />
-        </branch>
-        <branch name="XLXN_76(7:0)">
-            <wire x2="2384" y1="800" y2="800" x1="2096" />
-        </branch>
-        <branch name="XLXN_77">
-            <wire x2="2384" y1="864" y2="864" x1="2096" />
-        </branch>
-        <branch name="XLXN_93">
-            <wire x2="1712" y1="1376" y2="1376" x1="1664" />
-            <wire x2="1664" y1="1376" y2="1536" x1="1664" />
-            <wire x2="2176" y1="1536" y2="1536" x1="1664" />
-            <wire x2="2176" y1="1024" y2="1536" x1="2176" />
-            <wire x2="2384" y1="1024" y2="1024" x1="2176" />
-        </branch>
-        <instance x="2096" y="1280" name="XLXI_40" orien="R180">
-        </instance>
-        <instance x="1776" y="1808" name="XLXI_41" orien="R0" />
-        <branch name="XLXN_99">
-            <wire x2="2144" y1="1712" y2="1712" x1="2032" />
-            <wire x2="2144" y1="1248" y2="1248" x1="2096" />
-            <wire x2="2144" y1="1248" y2="1712" x1="2144" />
-        </branch>
-        <branch name="XLXN_100">
-            <wire x2="1696" y1="1152" y2="1680" x1="1696" />
-            <wire x2="1776" y1="1680" y2="1680" x1="1696" />
-            <wire x2="2160" y1="1152" y2="1152" x1="1696" />
-            <wire x2="2160" y1="928" y2="928" x1="2096" />
-            <wire x2="2160" y1="928" y2="1152" x1="2160" />
-        </branch>
-        <branch name="XLXN_101">
-            <wire x2="1712" y1="928" y2="928" x1="1680" />
-            <wire x2="1680" y1="928" y2="1600" x1="1680" />
-            <wire x2="1760" y1="1600" y2="1600" x1="1680" />
-            <wire x2="2816" y1="1600" y2="1600" x1="1760" />
-            <wire x2="1760" y1="1600" y2="1744" x1="1760" />
-            <wire x2="1776" y1="1744" y2="1744" x1="1760" />
-            <wire x2="2816" y1="1056" y2="1600" x1="2816" />
-        </branch>
-        <instance x="2208" y="1168" name="XLXI_42" orien="R0" />
-        <instance x="2224" y="1312" name="XLXI_43" orien="R0" />
-        <branch name="XLXN_102">
-            <wire x2="2288" y1="1312" y2="1392" x1="2288" />
-            <wire x2="2368" y1="1392" y2="1392" x1="2288" />
-            <wire x2="2368" y1="1312" y2="1392" x1="2368" />
-            <wire x2="2384" y1="1312" y2="1312" x1="2368" />
-        </branch>
-        <branch name="XLXN_103">
-            <wire x2="2272" y1="1168" y2="1232" x1="2272" />
-            <wire x2="2368" y1="1232" y2="1232" x1="2272" />
-            <wire x2="2368" y1="1232" y2="1248" x1="2368" />
-            <wire x2="2384" y1="1248" y2="1248" x1="2368" />
-        </branch>
-        <instance x="640" y="1248" name="XLXI_3" orien="R0" />
-        <branch name="Clk_50">
-            <wire x2="240" y1="592" y2="832" x1="240" />
-            <wire x2="1040" y1="592" y2="592" x1="240" />
-            <wire x2="1040" y1="592" y2="768" x1="1040" />
-            <wire x2="1040" y1="768" y2="1168" x1="1040" />
-            <wire x2="1712" y1="1168" y2="1168" x1="1040" />
-            <wire x2="2208" y1="1168" y2="1168" x1="1712" />
-            <wire x2="2208" y1="1168" y2="1312" x1="2208" />
-            <wire x2="2208" y1="1312" y2="1408" x1="2208" />
-            <wire x2="2384" y1="1408" y2="1408" x1="2208" />
-            <wire x2="1040" y1="768" y2="768" x1="896" />
-        </branch>
-        <branch name="VGA_R">
-            <wire x2="3168" y1="928" y2="928" x1="3152" />
-            <wire x2="3328" y1="928" y2="928" x1="3168" />
-        </branch>
-        <branch name="VGA_G">
-            <wire x2="3264" y1="992" y2="992" x1="3248" />
-            <wire x2="3328" y1="992" y2="992" x1="3264" />
-        </branch>
-        <iomarker fontsize="28" x="3328" y="800" name="VGA_HS" orien="R0" />
-        <iomarker fontsize="28" x="3328" y="864" name="VGA_VS" orien="R0" />
-        <instance x="2928" y="960" name="XLXI_10" orien="R0" />
-        <instance x="3120" y="928" name="XLXI_33" orien="R90" />
-        <branch name="VGA_B">
-            <wire x2="3168" y1="1056" y2="1056" x1="3152" />
-            <wire x2="3328" y1="1056" y2="1056" x1="3168" />
-        </branch>
-        <instance x="2928" y="1088" name="XLXI_44" orien="R0" />
-        <branch name="XLXN_7">
-            <wire x2="2848" y1="928" y2="928" x1="2816" />
-            <wire x2="2928" y1="928" y2="928" x1="2848" />
-            <wire x2="2848" y1="928" y2="1056" x1="2848" />
-            <wire x2="2928" y1="1056" y2="1056" x1="2848" />
-        </branch>
-        <iomarker fontsize="28" x="3328" y="928" name="VGA_R" orien="R0" />
-        <iomarker fontsize="28" x="3328" y="992" name="VGA_G" orien="R0" />
-        <iomarker fontsize="28" x="3328" y="1056" name="VGA_B" orien="R0" />
-        <instance x="1184" y="768" name="XLXI_45" orien="R0">
-        </instance>
-        <branch name="XLXN_109(7:0)">
-            <wire x2="1632" y1="736" y2="736" x1="1568" />
-            <wire x2="1632" y1="736" y2="800" x1="1632" />
-            <wire x2="1712" y1="800" y2="800" x1="1632" />
-        </branch>
-        <branch name="XLXN_110">
-            <wire x2="1616" y1="544" y2="544" x1="1568" />
-            <wire x2="1616" y1="544" y2="864" x1="1616" />
-            <wire x2="1712" y1="864" y2="864" x1="1616" />
-        </branch>
-        <branch name="XLXN_111">
-            <wire x2="1184" y1="544" y2="544" x1="1120" />
-            <wire x2="1120" y1="544" y2="832" x1="1120" />
-            <wire x2="1552" y1="832" y2="832" x1="1120" />
-            <wire x2="1552" y1="832" y2="1408" x1="1552" />
-            <wire x2="1600" y1="1408" y2="1408" x1="1552" />
-            <wire x2="1600" y1="1408" y2="1520" x1="1600" />
-            <wire x2="2096" y1="1520" y2="1520" x1="1600" />
-            <wire x2="1552" y1="1408" y2="1408" x1="1536" />
-            <wire x2="2096" y1="1376" y2="1520" x1="2096" />
-        </branch>
-        <branch name="XLXN_112">
-            <wire x2="1184" y1="608" y2="608" x1="1168" />
-            <wire x2="1168" y1="608" y2="912" x1="1168" />
-            <wire x2="1568" y1="912" y2="912" x1="1168" />
-            <wire x2="1568" y1="912" y2="1472" x1="1568" />
-            <wire x2="1568" y1="1472" y2="1472" x1="1536" />
-        </branch>
-        <branch name="XLXN_115">
-            <wire x2="1584" y1="800" y2="800" x1="1568" />
-            <wire x2="1584" y1="800" y2="1120" x1="1584" />
-            <wire x2="2144" y1="1120" y2="1120" x1="1584" />
-            <wire x2="2144" y1="1120" y2="1184" x1="2144" />
-            <wire x2="2144" y1="1184" y2="1184" x1="2096" />
+        <iomarker fontsize="28" x="496" y="768" name="Clk_50MHz" orien="R180" />
+        <branch name="XLXN_184">
+            <wire x2="1360" y1="976" y2="1088" x1="1360" />
+            <wire x2="1360" y1="1088" y2="1216" x1="1360" />
+            <wire x2="1792" y1="1088" y2="1088" x1="1360" />
+            <wire x2="2208" y1="1088" y2="1088" x1="1792" />
+            <wire x2="2208" y1="1088" y2="1296" x1="2208" />
+            <wire x2="2208" y1="1296" y2="1312" x1="2208" />
+            <wire x2="2224" y1="1296" y2="1296" x1="2208" />
+            <wire x2="2224" y1="1296" y2="1472" x1="2224" />
+            <wire x2="2688" y1="1472" y2="1472" x1="2224" />
+            <wire x2="1808" y1="912" y2="912" x1="1792" />
+            <wire x2="1792" y1="912" y2="1088" x1="1792" />
+            <wire x2="2256" y1="1056" y2="1056" x1="2208" />
+            <wire x2="2208" y1="1056" y2="1088" x1="2208" />
         </branch>
     </sheet>
 </drawing>
