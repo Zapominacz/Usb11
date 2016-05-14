@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-DESKTOP-4FPUEM7::  Sat May 14 21:23:58 2016
+DESKTOP-4FPUEM7::  Sat May 14 21:32:46 2016
 
 par -w -intstyle ise -ol high -t 1 top_lvl_map.ncd top_lvl.ncd top_lvl.pcf 
 
@@ -102,9 +102,9 @@ Writing design to file top_lvl.ncd
 Starting Router
 
 
-Phase  1  : 1136 unrouted;      REAL time: 7 secs 
+Phase  1  : 1136 unrouted;      REAL time: 6 secs 
 
-Phase  2  : 1004 unrouted;      REAL time: 7 secs 
+Phase  2  : 1004 unrouted;      REAL time: 6 secs 
 
 Phase  3  : 194 unrouted;      REAL time: 7 secs 
 
@@ -114,13 +114,13 @@ Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL 
 
 Updating file: top_lvl.ncd with current fully routed design.
 
-Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 8 secs 
+Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
-Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 8 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
-Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 8 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
-Total REAL time to Router completion: 8 secs 
+Total REAL time to Router completion: 7 secs 
 Total CPU time to Router completion: 7 secs 
 
 Partition Implementation Status

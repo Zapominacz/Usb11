@@ -105,39 +105,35 @@ Slice Utilization Ratio Delta      : 5
 *                          HDL Compilation                              *
 =========================================================================
 Compiling vhdl file "E:/Education/UCISW/Projekt/usb11/usb_rx.vhd" in Library work.
-Entity <usb_rx> compiled.
-Entity <usb_rx> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity usb_rx is up to date.
 Compiling vhdl file "E:/Education/UCISW/Projekt/usb11/FSM_SendByte.vhd" in Library work.
-Entity <FSM_SendByte> compiled.
-Entity <FSM_SendByte> (Architecture <RTL>) compiled.
+Architecture rtl of Entity fsm_sendbyte is up to date.
 Compiling vhdl file "E:/Education/UCISW/Projekt/usb11/newline_fsm.vhd" in Library work.
-Entity <newline_fsm> compiled.
-Entity <newline_fsm> (Architecture <Behavioral>) compiled.
+Architecture behavioral of Entity newline_fsm is up to date.
 Compiling vhdl file "E:/Education/UCISW/Projekt/usb11/sof_filter.vhd" in Library work.
-Entity <sof_filter> compiled.
-Entity <sof_filter> (Architecture <Behavioral>) compiled.
+Architecture behavioral of Entity sof_filter is up to date.
 Compiling vhdl file "E:/Education/UCISW/Projekt/usb11/top_lvl.vhf" in Library work.
 Entity <top_lvl> compiled.
-Entity <top_lvl> (Architecture <BEHAVIORAL>) compiled.
+Entity <top_lvl> (Architecture <behavioral>) compiled.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
 =========================================================================
-Analyzing hierarchy for entity <top_lvl> in library <work> (architecture <BEHAVIORAL>).
+Analyzing hierarchy for entity <top_lvl> in library <work> (architecture <behavioral>).
 
 Analyzing hierarchy for entity <usb_rx> in library <work> (architecture <behavioral>).
 
-Analyzing hierarchy for entity <FSM_SendByte> in library <work> (architecture <RTL>).
+Analyzing hierarchy for entity <FSM_SendByte> in library <work> (architecture <rtl>).
 
-Analyzing hierarchy for entity <newline_fsm> in library <work> (architecture <Behavioral>).
+Analyzing hierarchy for entity <newline_fsm> in library <work> (architecture <behavioral>).
 
-Analyzing hierarchy for entity <sof_filter> in library <work> (architecture <Behavioral>).
+Analyzing hierarchy for entity <sof_filter> in library <work> (architecture <behavioral>).
 
 
 =========================================================================
 *                            HDL Analysis                               *
 =========================================================================
-Analyzing Entity <top_lvl> in library <work> (Architecture <BEHAVIORAL>).
+Analyzing Entity <top_lvl> in library <work> (Architecture <behavioral>).
     Set user-defined property "CLKDV_DIVIDE =  2.0" for instance <XLXI_1> in unit <top_lvl>.
     Set user-defined property "CLKFX_DIVIDE =  5" for instance <XLXI_1> in unit <top_lvl>.
     Set user-defined property "CLKFX_MULTIPLY =  6" for instance <XLXI_1> in unit <top_lvl>.
@@ -159,13 +155,13 @@ Entity <top_lvl> analyzed. Unit <top_lvl> generated.
 Analyzing Entity <usb_rx> in library <work> (Architecture <behavioral>).
 Entity <usb_rx> analyzed. Unit <usb_rx> generated.
 
-Analyzing Entity <FSM_SendByte> in library <work> (Architecture <RTL>).
+Analyzing Entity <FSM_SendByte> in library <work> (Architecture <rtl>).
 Entity <FSM_SendByte> analyzed. Unit <FSM_SendByte> generated.
 
-Analyzing Entity <newline_fsm> in library <work> (Architecture <Behavioral>).
+Analyzing Entity <newline_fsm> in library <work> (Architecture <behavioral>).
 Entity <newline_fsm> analyzed. Unit <newline_fsm> generated.
 
-Analyzing Entity <sof_filter> in library <work> (Architecture <Behavioral>).
+Analyzing Entity <sof_filter> in library <work> (Architecture <behavioral>).
 Entity <sof_filter> analyzed. Unit <sof_filter> generated.
 
 
@@ -576,11 +572,11 @@ Offset:              5.032ns (Levels of Logic = 3)
 
 
 Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 7.11 secs
+Total CPU time to Xst completion: 7.23 secs
  
 --> 
 
-Total memory usage is 323248 kilobytes
+Total memory usage is 323268 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   12 (   0 filtered)
