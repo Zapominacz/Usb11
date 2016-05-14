@@ -1,0 +1,5 @@
+vhdl work "usb_rx.vhd"
+vhdl work "sof_filter.vhd"
+vhdl work "newline_fsm.vhd"
+vhdl work "FSM_SendByte.vhd"
+vhdl work "top_lvl.vhf"

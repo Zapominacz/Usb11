@@ -1,0 +1,114 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Sat May 14 21:23:55 2016
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "VGA_B" LOCATE = SITE "G15" LEVEL 1;
+COMP "VGA_G" LOCATE = SITE "H15" LEVEL 1;
+COMP "VGA_R" LOCATE = SITE "H14" LEVEL 1;
+COMP "Clk_50MHz" LOCATE = SITE "C9" LEVEL 1;
+COMP "VGA_HS" LOCATE = SITE "F15" LEVEL 1;
+COMP "VGA_VS" LOCATE = SITE "F14" LEVEL 1;
+COMP "USB_DM" LOCATE = SITE "C5" LEVEL 1;
+COMP "USB_DP" LOCATE = SITE "D5" LEVEL 1;
+PIN XLXI_8/XLXI_3.B_pins<12> = BEL "XLXI_8/XLXI_3.B" PINNAME CLKB;
+TIMEGRP TNM_ClkSys = BEL "XLXI_40/last_received" BEL "XLXI_7/State_FSM_FFd5"
+        BEL "XLXI_7/State_FSM_FFd4" BEL "XLXI_7/State_FSM_FFd6" BEL
+        "XLXI_7/State_FSM_FFd2" BEL "XLXI_7/State_FSM_FFd1" BEL
+        "XLXI_7/State_FSM_FFd3" BEL "XLXI_7/regDI_7" BEL "XLXI_7/regDI_6" BEL
+        "XLXI_7/regDI_5" BEL "XLXI_7/regDI_4" BEL "XLXI_7/regDI_3" BEL
+        "XLXI_7/regDI_2" BEL "XLXI_7/regDI_1" BEL "XLXI_7/regDI_0" BEL
+        "XLXI_6/high_state_lenght_3" BEL "XLXI_6/high_state_lenght_2" BEL
+        "XLXI_6/high_state_lenght_1" BEL "XLXI_6/high_state_lenght_0" BEL
+        "XLXI_6/received_bits_3" BEL "XLXI_6/received_bits_2" BEL
+        "XLXI_6/received_bits_1" BEL "XLXI_6/received_bits_0" BEL
+        "XLXI_6/se0_signal_counter_2" BEL "XLXI_6/se0_signal_counter_1" BEL
+        "XLXI_6/se0_signal_counter_0" BEL "XLXI_6/wave_length_counter_2" BEL
+        "XLXI_6/wave_length_counter_1" BEL "XLXI_6/wave_length_counter_0" BEL
+        "XLXI_6/sync_state_FSM_FFd2" BEL "XLXI_6/sync_state_FSM_FFd1" BEL
+        "XLXI_6/last_d_p" BEL "XLXI_6/busy" BEL "XLXI_6/received" BEL
+        "XLXI_6/i_rx_byte_7" BEL "XLXI_6/i_rx_byte_6" BEL "XLXI_6/i_rx_byte_5"
+        BEL "XLXI_6/i_rx_byte_4" BEL "XLXI_6/i_rx_byte_3" BEL
+        "XLXI_6/i_rx_byte_2" BEL "XLXI_6/i_rx_byte_1" BEL "XLXI_6/i_rx_byte_0"
+        BEL "XLXI_45/i_should_block" BEL "XLXI_45/DIRdy" BEL
+        "XLXI_45/first_packet" BEL "XLXI_45/last_newline" BEL "XLXI_40/notify"
+        BEL "XLXI_40/i_newline" BEL "XLXI_8/I_CursorCnt/ScrollBase_4" BEL
+        "XLXI_8/I_CursorCnt/ScrollBase_3" BEL
+        "XLXI_8/I_CursorCnt/ScrollBase_2" BEL
+        "XLXI_8/I_CursorCnt/ScrollBase_1" BEL
+        "XLXI_8/I_CursorCnt/ScrollBase_0" BEL "XLXI_8/I_CursorCnt/ColCnt_5"
+        BEL "XLXI_8/I_CursorCnt/ColCnt_4" BEL "XLXI_8/I_CursorCnt/ColCnt_3"
+        BEL "XLXI_8/I_CursorCnt/ColCnt_2" BEL "XLXI_8/I_CursorCnt/ColCnt_1"
+        BEL "XLXI_8/I_CursorCnt/ColCnt_0" BEL "XLXI_8/I_CursorCnt/LineCnt_4"
+        BEL "XLXI_8/I_CursorCnt/LineCnt_3" BEL "XLXI_8/I_CursorCnt/LineCnt_2"
+        BEL "XLXI_8/I_CursorCnt/LineCnt_1" BEL "XLXI_8/I_CursorCnt/LineCnt_0"
+        BEL "XLXI_8/I_CursorCnt/State_0" PIN "XLXI_8/XLXI_3.B_pins<12>";
+PIN XLXI_8/XLXI_3.A_pins<12> = BEL "XLXI_8/XLXI_3.A" PINNAME CLKA;
+TIMEGRP TNM_Clk50 = BEL "XLXI_8/XLXI_147/En" BEL
+        "XLXI_8/I_ModeCtrl/cntMod30_4" BEL "XLXI_8/I_ModeCtrl/cntMod30_3" BEL
+        "XLXI_8/I_ModeCtrl/cntMod30_2" BEL "XLXI_8/I_ModeCtrl/cntMod30_1" BEL
+        "XLXI_8/I_ModeCtrl/cntMod30_0" BEL "XLXI_8/I_ModeCtrl/cntY_9" BEL
+        "XLXI_8/I_ModeCtrl/cntY_8" BEL "XLXI_8/I_ModeCtrl/cntY_7" BEL
+        "XLXI_8/I_ModeCtrl/cntY_6" BEL "XLXI_8/I_ModeCtrl/cntY_5" BEL
+        "XLXI_8/I_ModeCtrl/cntY_4" BEL "XLXI_8/I_ModeCtrl/cntY_3" BEL
+        "XLXI_8/I_ModeCtrl/cntY_2" BEL "XLXI_8/I_ModeCtrl/cntY_1" BEL
+        "XLXI_8/I_ModeCtrl/cntY_0" BEL "XLXI_8/I_ModeCtrl/cntX_10" BEL
+        "XLXI_8/I_ModeCtrl/cntX_9" BEL "XLXI_8/I_ModeCtrl/cntX_8" BEL
+        "XLXI_8/I_ModeCtrl/cntX_7" BEL "XLXI_8/I_ModeCtrl/cntX_6" BEL
+        "XLXI_8/I_ModeCtrl/cntX_5" BEL "XLXI_8/I_ModeCtrl/cntX_4" BEL
+        "XLXI_8/I_ModeCtrl/cntX_3" BEL "XLXI_8/I_ModeCtrl/cntX_2" BEL
+        "XLXI_8/I_ModeCtrl/cntX_1" BEL "XLXI_8/I_ModeCtrl/cntX_0" BEL
+        "XLXI_8/I_ModeCtrl/iLineNo_4" BEL "XLXI_8/I_ModeCtrl/iLineNo_3" BEL
+        "XLXI_8/I_ModeCtrl/iLineNo_2" BEL "XLXI_8/I_ModeCtrl/iLineNo_1" BEL
+        "XLXI_8/I_ModeCtrl/iLineNo_0" BEL "XLXI_8/I_ModeCtrl/HSync" BEL
+        "XLXI_8/I_ModeCtrl/VActive" BEL "XLXI_8/I_ModeCtrl/HActive" BEL
+        "XLXI_8/I_ModeCtrl/VSync" BEL "XLXI_8/XLXI_115/XLXI_155/ActiveX" BEL
+        "XLXI_8/XLXI_115/XLXI_155/prevDetectY" BEL
+        "XLXI_8/XLXI_115/XLXI_155/prevDetectX" BEL
+        "XLXI_8/XLXI_115/XLXI_155/PixOut" BEL
+        "XLXI_8/XLXI_115/XLXI_155/cntLine_0" BEL
+        "XLXI_8/XLXI_115/XLXI_155/cntLine_1" BEL
+        "XLXI_8/XLXI_115/XLXI_155/cntLine_2" BEL
+        "XLXI_8/XLXI_115/XLXI_155/cntCol_0" BEL
+        "XLXI_8/XLXI_115/XLXI_155/cntCol_1" BEL
+        "XLXI_8/XLXI_115/XLXI_155/cntCol_2" BEL
+        "XLXI_8/XLXI_115/XLXI_155/cntCol_3" BEL
+        "XLXI_8/XLXI_115/XLXI_155/cntCol_4" BEL
+        "XLXI_8/XLXI_115/XLXI_155/cntCol_5" BEL
+        "XLXI_8/XLXI_115/XLXI_152/Cnt_24" BEL
+        "XLXI_8/XLXI_115/XLXI_152/Cnt_23" BEL
+        "XLXI_8/XLXI_115/XLXI_152/Cnt_22" BEL
+        "XLXI_8/XLXI_115/XLXI_152/Cnt_21" BEL
+        "XLXI_8/XLXI_115/XLXI_152/Cnt_20" BEL
+        "XLXI_8/XLXI_115/XLXI_152/Cnt_19" BEL
+        "XLXI_8/XLXI_115/XLXI_152/Cnt_18" BEL
+        "XLXI_8/XLXI_115/XLXI_152/Cnt_17" BEL
+        "XLXI_8/XLXI_115/XLXI_152/Cnt_16" BEL
+        "XLXI_8/XLXI_115/XLXI_152/Cnt_15" BEL
+        "XLXI_8/XLXI_115/XLXI_152/Cnt_14" BEL
+        "XLXI_8/XLXI_115/XLXI_152/Cnt_13" BEL
+        "XLXI_8/XLXI_115/XLXI_152/Cnt_12" BEL
+        "XLXI_8/XLXI_115/XLXI_152/Cnt_11" BEL
+        "XLXI_8/XLXI_115/XLXI_152/Cnt_10" BEL "XLXI_8/XLXI_115/XLXI_152/Cnt_9"
+        BEL "XLXI_8/XLXI_115/XLXI_152/Cnt_8" BEL
+        "XLXI_8/XLXI_115/XLXI_152/Cnt_7" BEL "XLXI_8/XLXI_115/XLXI_152/Cnt_6"
+        BEL "XLXI_8/XLXI_115/XLXI_152/Cnt_5" BEL
+        "XLXI_8/XLXI_115/XLXI_152/Cnt_4" BEL "XLXI_8/XLXI_115/XLXI_152/Cnt_3"
+        BEL "XLXI_8/XLXI_115/XLXI_152/Cnt_2" BEL
+        "XLXI_8/XLXI_115/XLXI_152/Cnt_1" BEL "XLXI_8/XLXI_115/XLXI_152/Cnt_0"
+        BEL "XLXI_8/XLXI_115/XLXI_147/O" BEL "XLXI_8/XLXI_115/XLXI_151/Q" BEL
+        "XLXI_8/XLXI_115/XLXI_151/O" BEL "XLXI_8/XLXI_115/XLXI_147/Q" BEL
+        "XLXI_8/XLXI_147/Mrom_DO_rom0000.A" PIN "XLXI_8/XLXI_3.A_pins<12>" BEL
+        "XLXI_8/XLXI_115/XLXI_150/Mshreg_O/SRL16E" BEL
+        "XLXI_8/XLXI_115/XLXI_150/O" BEL
+        "XLXI_8/XLXI_115/XLXI_148/Mshreg_O/SRL16E" BEL
+        "XLXI_8/XLXI_115/XLXI_148/O" BEL
+        "XLXI_8/XLXI_115/XLXI_149/Mshreg_O/SRL16E" BEL
+        "XLXI_8/XLXI_115/XLXI_149/O";
+NET "Clk_50MHz_IBUFG" PERIOD = 20 ns HIGH 50%;
+PATH TS_12_path = FROM TIMEGRP "TNM_ClkSys" TO TIMEGRP "TNM_Clk50";
+PATH "TS_12_path" TIG;
+PATH TS_13_path = FROM TIMEGRP "TNM_Clk50" TO TIMEGRP "TNM_ClkSys";
+PATH "TS_13_path" TIG;
+SCHEMATIC END;
+
